@@ -41,7 +41,7 @@ randomNumbersContainer.append(randNumbers);
 // Dopo 30 secondi l’utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt()
 
 let timer1 = setTimeout(function(){
-    
+
     randomNumbersContainer.innerHTML = '';
 
     let timer2 = setTimeout(function(){
@@ -59,13 +59,22 @@ let timer1 = setTimeout(function(){
     
         }
 
+        // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+        
+        const intersection = randNumbers.filter(element => userNumbers.includes(element));
+
+        if (intersection.length == 0){
+            randomNumbersContainer.innerHTML = `<h1>Ne hai ricordati ${intersection.length}`
+        } else if (intersection.length == 1){
+            randomNumbersContainer.innerHTML = `<h1>Ne hai ricordato solo ${intersection.length}`
+        } else {
+            randomNumbersContainer.innerHTML = `<h1>Ne hai ricordati ${intersection.length} e sono ${intersection}</h1>`
+        }
+
+        console.log(intersection);
+        
     }, 100);
-    // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
-
-
-
 }, 2000);
-
 
 
 
