@@ -49,10 +49,10 @@ let timer1 = setTimeout(function(){
         userNumbers = [];
 
         for (let index = 0; index < 5; index++) {
-            let userChoice = parseInt(prompt('inserisci numero'));
+            let userChoice = parseInt(prompt('inserisci numero tra 1 e 20'));
             
-            while (userNumbers.includes(userChoice)){
-                userChoice = parseInt(prompt('inserisci numero'));
+            while (userNumbers.includes(userChoice) || userChoice > 20){
+                userChoice = parseInt(prompt("Numero già inserito, fai un'altra scelta"));
             }
             userNumbers.push(userChoice);
             console.log('userNumbers', userNumbers);
